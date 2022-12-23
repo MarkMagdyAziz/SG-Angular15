@@ -1,15 +1,31 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-          This content is a little bit longer.</p>
+<div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+  <div class="col-12 col-md-6 col-lg-4"
+    *ngFor="let program of programsArray | slice :(currentPage -1) * pageSize: (currentPage-1) * pageSize + pageSize">
+    <div class="card">
+      <img src="https://picsum.photos/200/100?random={{random}}" class="card-img-top w-100 h-50" alt="card img">
+      <div class="card-body" style="height: 120px; text-overflow: ellipsis; overflow: hidden;">
+        <h5 class="card-title">{{program.progName}}</h5>
+        <p class="card-text">{{program.desc}}</p>
+        <span class="position-absolute p-1 top-50 start-75 translate-middle badge bg-danger">
+          {{program.fee | currency}}
+        </span>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <!-- <small class="text-muted p-1">{{program.level}}</small> -->
+        <i class="fa-solid fa-language px-1"></i>{{program.lang}}
+        <i class="fa-regular fa-calendar px-1"></i>At {{program.start_date}}
+        <i class="fa-solid fa-location-dot px-1"></i>In {{program.city}}
       </div>
     </div>
   </div>
+</div>
+<br>
+<div class=" d-flex flex-column justify-content-center  align-items-center">
+  <ngb-pagination [pageSize]="pageSize" [(page)]="currentPage" [collectionSize]=programsArray.length #numPages
+    [maxSize]="9" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+  <pre>
+        <span class="float-md-left">Page: {{ currentPage }} / {{ numPages.pageCount }}
+        </span>
+  </pre>
+  <hr>
 </div>

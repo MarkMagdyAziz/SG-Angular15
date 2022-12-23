@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramsComponent implements OnInit {
   programs: IProgram[] = []
+  currentPage = 1;
+
   constructor(private programService: ProgramService) {
 
   }
