@@ -11,10 +11,13 @@
         </span>
       </div>
       <div class="card-footer">
-        <!-- <small class="text-muted p-1">{{program.level}}</small> -->
-        <i class="fa-solid fa-language px-1"></i>{{program.lang}}
-        <i class="fa-regular fa-calendar px-1"></i>At {{program.start_date}}
-        <i class="fa-solid fa-location-dot px-1"></i>In {{program.city}}
+        <i class="fa-solid fa-language px-1"></i><small class="text-muted p-1">{{program.lang}}</small>
+        <i class="fa-regular fa-calendar px-1"></i><small class="text-muted p-1">At {{program.start_date}}</small>
+        <br>
+        <i class="fa-solid fa-location-dot px-1"></i><small class="text-muted p-1">In {{program.city}}</small>
+        <i class="fa-solid fa-user-graduate px-1"></i><small class="text-muted p-1"> {{program.level}}</small>
+        <!-- <small class="text-muted p-1"></small> -->
+
       </div>
     </div>
   </div>
