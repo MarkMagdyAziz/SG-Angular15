@@ -6,7 +6,7 @@
       <div class="card-body" style="height: 120px; text-overflow: ellipsis; overflow: hidden;">
         <h5 class="card-title">{{program.progName}}</h5>
         <p class="card-text">{{program.desc}}</p>
-        <span class="position-absolute p-1 top-50 start-75 translate-middle badge bg-danger">
+        <span style="top: 100px;" class="position-absolute py-2 translate-middle badge bg-danger">
           {{program.fee | currency}}
         </span>
       </div>
@@ -20,7 +20,7 @@
   </div>
 </div>
 <br>
-<div class=" d-flex flex-column justify-content-center  align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center">
   <ngb-pagination [pageSize]="pageSize" [(page)]="currentPage" [collectionSize]=programsArray.length #numPages
     [maxSize]="9" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
   <pre>

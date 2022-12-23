@@ -10,15 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProgramsComponent implements OnInit {
   programs: IProgram[] = []
   currentPage = 1;
-
+  loader: boolean = true
   constructor(private programService: ProgramService) {
 
   }
   ngOnInit(): void {
-    this.programService.getPrograms().subscribe((res) => {
-      this.programs = res
-      console.log(this.programs);
-
-    })
+    this.programService.getPrograms().subscribe(({
+      next: (res) => this.programs = res,
+      error: (err) => console.log(err),
+      complete: () => this.loader = false
+    }))
   }
 }
