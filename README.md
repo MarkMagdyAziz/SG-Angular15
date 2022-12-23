@@ -1,7 +1,23 @@
-# SGTask
-
+# SG-Angular15
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.2.
 
+## packages
+ng-bootstrap 14.0.0
+
+## Get started
+### Clone the repo
+```shell
+git clone https://github.com/MarkMagdyAziz/SG-Angular15.git
+cd SG-Angular15
+```
+
+### Install npm packages
+Install the npm packages described in the package.json and verify that it works:
+
+```shell
+npm install
+```
+ 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
