@@ -17,6 +17,10 @@ Install the npm packages described in the package.json and verify that it works:
 ```shell
 npm install
 ```
+### start the project
+```shell
+ ng serve -o
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
