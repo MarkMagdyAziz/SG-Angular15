@@ -8,14 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramsComponent implements OnInit {
   programs: IProgram[] = []
-  currentPage = 1;
   loader: boolean = true
 
 
   // Filters
   langs: any[] = [{ key: "English" }, { key: "French" }]
   levels: any[] = [{ key: "Master" }, { key: "Bachelor" }, { key: "MBA" }, { key: "PHD" }]
-  filterModel: any = {};
 
   constructor(private programService: ProgramService) {
   }
