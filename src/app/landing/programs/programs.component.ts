@@ -15,6 +15,7 @@ export class ProgramsComponent implements OnInit {
   // Filters
   langs: any[] = [{ key: "English" }, { key: "French" }]
   levels: any[] = [{ key: "Master" }, { key: "Bachelor" }, { key: "MBA" }, { key: "PHD" }]
+  filterModel: any = {};
 
   constructor(private programService: ProgramService) {
   }
@@ -25,7 +26,7 @@ export class ProgramsComponent implements OnInit {
       complete: () => this.loader = false
     }))
   }
-  filter(lang?: string, level?: string) {
+  filter(lang?: string, level?: string,) {
     this.loader = true
     this.programService.getPrograms(undefined, undefined, lang, undefined, level).subscribe(({
       next: (res) => this.programs = res,
