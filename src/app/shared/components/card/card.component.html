@@ -6,18 +6,19 @@
       <div class="card-body" style="height: 120px; text-overflow: ellipsis; overflow: hidden;">
         <h5 class="card-title">{{program.progName}}</h5>
         <p class="card-text">{{program.desc}}</p>
-        <span style="top: 100px;" class="position-absolute py-2 translate-middle badge bg-danger">
+        <span style="top: 100px; left: 40px; " class="position-absolute py-2 translate-middle badge bg-primary">
           {{program.fee | currency}}
         </span>
       </div>
       <div class="card-footer">
-        <i class="fa-solid fa-language px-1"></i><small class="text-muted p-1">{{program.lang}}</small>
-        <i class="fa-regular fa-calendar px-1"></i><small class="text-muted p-1">At {{program.start_date}}</small>
-        <br>
-        <i class="fa-solid fa-location-dot px-1"></i><small class="text-muted p-1">In {{program.city}}</small>
-        <i class="fa-solid fa-user-graduate px-1"></i><small class="text-muted p-1"> {{program.level}}</small>
-        <!-- <small class="text-muted p-1"></small> -->
-
+        <div class="float-end">
+          <i class="fa-solid fa-language px-1"></i><small class="text-muted p-1">{{program.lang}}</small>
+          <i class="fa-regular fa-calendar px-1"></i><small class="text-muted p-1">At {{program.start_date}}</small>
+        </div>
+        <div>
+          <i class="fa-solid fa-location-dot px-1"></i><small class="text-muted p-1">In {{program.city}}</small>
+          <i class="fa-solid fa-user-graduate px-1"></i><small class="text-muted p-1"> {{program.level}}</small>
+        </div>
       </div>
     </div>
   </div>
