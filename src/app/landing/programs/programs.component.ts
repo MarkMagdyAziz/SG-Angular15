@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramsComponent implements OnInit {
   programs: IProgram[] = []
-  currentPage = 1;
   loader: boolean = true
 
 
   // Filters
   langs: any[] = [{ key: "English" }, { key: "French" }]
+  levels: any[] = [{ key: "Master" }, { key: "Bachelor" }, { key: "MBA" }, { key: "PHD" }]
+
   constructor(private programService: ProgramService) {
   }
   ngOnInit(): void {
@@ -23,9 +24,9 @@ export class ProgramsComponent implements OnInit {
       complete: () => this.loader = false
     }))
   }
-  filterLang(Lang: string) {
+  filter(lang?: string, level?: string,) {
     this.loader = true
-    this.programService.getPrograms(undefined, undefined, Lang).subscribe(({
+    this.programService.getPrograms(undefined, undefined, lang, undefined, level).subscribe(({
       next: (res) => this.programs = res,
       error: (err) => { console.log(err); this.loader = false },
       complete: () => this.loader = false

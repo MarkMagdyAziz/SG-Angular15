@@ -2,25 +2,47 @@
 
   <div class="row">
     <div class="col-2 py-5">
-      <div class="form-check">
-        <input (change)="filterLang('None')" class="form-check-input" type="radio" name="currentLang" id="None"
-          value="None" checked>
-        <label class="form-check-label" for="None">
-          All
-        </label>
+      <div class="lang-filter">
+        <h3 class="text-primary">Language</h3>
+        <hr>
+        <div class="form-check">
+          <input (change)="filter('None')" class="form-check-input" type="radio" name="currentLang" id="None"
+            value="None" checked>
+          <label class="form-check-label" for="None">
+            All
+          </label>
+        </div>
+        <div class="form-check" *ngFor="let lang of langs">
+          <input (change)="filter(lang.key)" class="form-check-input" type="radio" name="currentLang" [id]="lang.key"
+            [value]="lang.key">
+          <label class="form-check-label" [for]="lang.key">
+            {{lang.key}}
+          </label>
+        </div>
       </div>
-      <div class="form-check" *ngFor="let lang of langs">
-        <input (change)="filterLang(lang.key)" class="form-check-input" type="radio" name="currentLang" [id]="lang.key"
-          [value]="lang.key">
-        <label class="form-check-label" [for]="lang.key">
-          {{lang.key}}
-        </label>
+      <br><br><br>
+      <div class="level-filter">
+        <h3 class="text-primary">Levels</h3>
+        <hr>
+        <div class="form-check">
+          <input (change)="filter(undefined,'None')" class="form-check-input" type="radio" name="currnetLevel"
+            id="allLevel" value="allLevel">
+          <label class="form-check-label" for="allLevel">
+            All Levels
+          </label>
+        </div>
+        <div class="form-check" *ngFor="let level of levels">
+          <input (change)="filter(undefined,level.key)" class="form-check-input" type="radio" name="currnetLevel"
+            [id]="level.key" [value]="level.key">
+          <label class="form-check-label" [for]="level.key">
+            {{level.key}}
+          </label>
+        </div>
       </div>
     </div>
     <div class="col-10">
-      <div class="p-5">
-        <h1>Filteration</h1>
-      </div>
+      <br><br><br>
+
       <app-card *ngIf="!loader" [programsArray]="programs"></app-card>
       <div class="d-flex justify-content-center align-items-center" *ngIf="loader">
         <div class="card is-loading" *ngFor="let item of [0,1,2,]">
